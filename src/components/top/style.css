@@ -1,0 +1,12 @@
+.top-container {
+  display: flex;
+  flex-direction: column;
+  font-family: Oxygen, sans-serif;
+  align-items: center;
+  background-color: #445a71;
+  height: 100%;
+  widows: 100%; }
+
+.top-container .title {
+  color: #fff;
+  font-size: 20px; }
