@@ -1,0 +1,29 @@
+.bottom-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, #6ABECA 0%, rgba(58, 98, 104, 0.57) 100%), url(../../resources/images/sunny-weather.jpeg) center no-repeat;
+    background-size: cover;
+}
+
+.forecastday-container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .image{
+        width: 2em;
+        height: 2em;
+        img{
+            width: 100%;
+            height: 100%;
+        }  
+    }
+    .text{
+        font-size: 12px;
+    }
+}
