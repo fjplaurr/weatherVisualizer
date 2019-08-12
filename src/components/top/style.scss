@@ -1,9 +1,9 @@
-.top-container {
+.topContainer {
   display: flex;
   flex-direction: column;
   font-family: Oxygen, sans-serif;
   align-items: center;
-  background-color: #445a71;
+  background-color: rgb(70, 95, 120);
   height: 100%;
   widows: 100%;
 
@@ -15,7 +15,7 @@
   }
 }
 
-.weather-container {
+.weatherContainer {
   color: #fff;
   margin-top: 1.2em;
 
@@ -58,7 +58,7 @@
 }
 
 
-.btn-select-location{
+.btnLocation{
     font-size: 10px;
     font-family: Roboto, sans-serif;
     border-radius: 2px;

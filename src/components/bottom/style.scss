@@ -1,4 +1,4 @@
-.bottom-container{
+.bottomSecion{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -7,23 +7,75 @@
     height: 100%;
     background: linear-gradient(180deg, #6ABECA 0%, rgba(58, 98, 104, 0.57) 100%), url(../../resources/images/sunny-weather.jpeg) center no-repeat;
     background-size: cover;
+
+    .bottomContainer{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        justify-items: stretch;
+        align-items: center;
+        grid-gap: 50px;
+
+        .dayContainer{
+            color: white;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12);
+            border-radius: 4px;
+            background-color: rgba(70, 95, 120, 0.8);
+            grid-template-areas: 'header header' 
+                                 'forecastTopLeft forecastTopRight'        
+                                 'forecastBottomLeft forecastBottomRight';
+            
+            :first-child{
+                grid-area: header;
+                justify-self: center;
+            }
+
+            :nth-child(4n+2){
+                grid-area: forecastTopLeft;
+            }
+
+            :nth-child(4n+3){
+                grid-area: forecastTopRight;
+            }
+
+            :nth-child(4n+4){
+                grid-area: forecastBottomLeft;
+            }
+
+            :last-child{
+                grid-area: forecastBottomRight;
+            }
+        }
+    }
 }
 
-.forecastday-container{
-    color: white;
+.forecastHourContainer{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
     .image{
         width: 2em;
         height: 2em;
+
         img{
             width: 100%;
             height: 100%;
         }  
     }
-    .text{
-        font-size: 12px;
+    
+    .temperature{
+        font-size: 10px;
+    }
+
+    .date {
+        font-size: 9px; 
+    }
+
+    .time{
+        font-size: 9px;
     }
 }
+
