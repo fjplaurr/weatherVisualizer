@@ -1,28 +1,35 @@
 .bottomSecion {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(180deg, #6ABECA 0%, rgba(58, 98, 104, 0.57) 100%), url(../../resources/images/sunny-weather.jpeg) center no-repeat;
-  background-size: cover; }
+  flex: 1 1 50%;
+  background: var(--bottomColor);
+  overflow-y: overlay;
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE 10+ */ }
+
+.bottomSecion ::-webkit-scrollbar {
+  /* WebKit */
+  width: 0px;
+  height: 0px; }
 
 .bottomSecion .bottomContainer {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-items: stretch;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  justify-content: center;
   align-items: center;
-  grid-gap: 50px; }
+  margin: 1.5rem;
+  max-width: 80vw; }
 
 .bottomSecion .bottomContainer .dayContainer {
-  color: white;
+  color: #e9e9e9;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.2), 0px 1px 1px 0px rgba(0, 0, 0, 0.14), 0px 2px 1px -1px rgba(0, 0, 0, 0.12);
-  border-radius: 4px;
-  background-color: rgba(70, 95, 120, 0.8);
+  grid-template-columns: repeat(2, 1fr);
+  border-radius: 3px;
   grid-template-areas: 'header header'  'forecastTopLeft forecastTopRight'         'forecastBottomLeft forecastBottomRight'; }
+
+.bottomSecion .bottomContainer .dayContainer .dateForecast {
+  font-size: 1rem; }
 
 .bottomSecion .bottomContainer .dayContainer :first-child {
   grid-area: header;
@@ -40,25 +47,35 @@
 .bottomSecion .bottomContainer .dayContainer :last-child {
   grid-area: forecastBottomRight; }
 
+.wrapperDay {
+  box-shadow: 0 1px 6px 0 rgba(240, 240, 240, 0.2);
+  background-color: rgba(0, 0, 0, 0.05);
+  padding-right: 0.5rem;
+  border: solid 1px white;
+  border-radius: 6px; }
+
 .forecastHourContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center; }
 
-.forecastHourContainer .image {
-  width: 2em;
-  height: 2em; }
+.forecastHourContainer .wrapperTempTime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
 
-.forecastHourContainer .image img {
+.forecastHourContainer .imageWrapper {
+  width: 2.5rem;
+  height: 2.5rem; }
+
+.forecastHourContainer .imageWrapper img {
   width: 100%;
   height: 100%; }
 
 .forecastHourContainer .temperature {
-  font-size: 10px; }
-
-.forecastHourContainer .date {
-  font-size: 9px; }
+  font-size: 1rem; }
 
 .forecastHourContainer .time {
-  font-size: 9px; }
+  font-size: 0.7rem; }

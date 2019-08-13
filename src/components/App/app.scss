@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif;
+  font-family: Arial, sans-serif;
 }
 
 html,
@@ -13,6 +13,11 @@ body,
 #root {
   width: 100%;
   height: 100%;
+  background-color: #DDD;
+}
+
+#root{
+  --bottomColor: #32465C;
 }
 
 .appContainer {
@@ -23,55 +28,67 @@ body,
   align-items: center;
 
   .mainContainer {
-    min-width: 600px;
-    height: 300px;
     display: flex;
     flex-direction: column;
-    border: 1px solid #999;
-    border-radius: 3px;
-
+    border: 2px solid #777;
+ 
     .topSection {
-      flex: 0 0 50%;
-    }
-
-    .bottomSecion {
-      flex: 0 0 50%;
+      background: url(../../resources/images/weather.jpg) center no-repeat;
+      background-color: rgba(0, 0, 0, 0.6);
+      background-blend-mode: hue;
+      background-size: cover;
+      flex: 1 1 50%;
     }
   }
 }
 
-.btn{
-    border: 1px solid #ddd;
-    margin: 15px 0;
-    cursor:pointer;
+.btn {
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background-color: rgb(100, 180, 200);
+  cursor: pointer;
 
-    &:focus{
-        outline: none;
-    }
+  &:hover {
+    background-color: var(--bottomColor);
+    color: #e9e9e9;
+  }
+
+  &:focus {
+    outline: none;
+  }
 }
 
-.popup-container{
-    width: 13em;
-    height: 5.5em;
-    display: flex;
-    border-radius: 4px;
-    background-color: #fff;
-    box-shadow: 0px 0px 3px 2px rgba(15,15,15,0.2);
-    font-size: 16px;
+.popup-container {
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, .28);
+
+  .form-container {
+    padding: 0.5rem;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 'inputCity inputCity' 'btnConfirm btnCancel';
+
+    input {
+      border: 1px solid rgba(16, 16, 16, 0.3);
+      font-size: 0.8rem;
+      outline:none;
+      grid-area: inputCity;
+      border-radius: 3px;
+    }
+
+    .btnLocationAccept{
+      grid-area: btnConfirm;
+      margin-top: 0.5rem;
+    }
+
+    .btnLocationCancel{
+      grid-area: btnCancel;
+      margin-top: 0.5rem;
+    }
+  }
 }
 
-.form-container{
-    padding: 4px;
-
-    input{
-        width: 100%;
-        border-radius: 2px;
-        border: 1px solid rgba(15,15,15,0.2);
-    }
-    
-    label{
-        element.style {
-            font-size: 12px;
-        }
-    }
+.btnLocation{
+  margin: 1rem 0px; 
 }

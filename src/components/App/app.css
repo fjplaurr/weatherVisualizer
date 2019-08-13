@@ -4,13 +4,17 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: sans-serif; }
+  font-family: Arial, sans-serif; }
 
 html,
 body,
 #root {
   width: 100%;
-  height: 100%; }
+  height: 100%;
+  background-color: #DDD; }
+
+#root {
+  --bottomColor: #32465C; }
 
 .appContainer {
   width: 100%;
@@ -18,39 +22,57 @@ body,
   display: flex;
   justify-content: center;
   align-items: center; }
-  .appContainer .mainContainer {
-    min-width: 600px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    border: 1px solid #999;
-    border-radius: 3px; }
-    .appContainer .mainContainer .topSection {
-      flex: 0 0 50%; }
-    .appContainer .mainContainer .bottomSecion {
-      flex: 0 0 50%; }
+
+.appContainer .mainContainer {
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #777; }
+
+.appContainer .mainContainer .topSection {
+  background: url(../../resources/images/weather.jpg) center no-repeat;
+  background-color: rgba(0, 0, 0, 0.6);
+  background-blend-mode: hue;
+  background-size: cover;
+  flex: 1 1 50%; }
 
 .btn {
   border: 1px solid #ddd;
-  margin: 15px 0;
+  border-radius: 3px;
+  background-color: #64b4c8;
   cursor: pointer; }
-  .btn:focus {
-    outline: none; }
+
+.btn:hover {
+  background-color: var(--bottomColor);
+  color: #e9e9e9; }
+
+.btn:focus {
+  outline: none; }
 
 .popup-container {
-  width: 13em;
-  height: 5.5em;
-  display: flex;
-  border-radius: 4px;
-  background-color: #fff;
-  box-shadow: 0px 0px 3px 2px rgba(15, 15, 15, 0.2);
-  font-size: 16px; }
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28); }
 
-.form-container {
-  padding: 4px; }
-  .form-container input {
-    width: 100%;
-    border-radius: 2px;
-    border: 1px solid rgba(15, 15, 15, 0.2); }
-  .form-container label element.style {
-    font-size: 12px; }
+.popup-container .form-container {
+  padding: 0.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-areas: 'inputCity inputCity' 'btnConfirm btnCancel'; }
+
+.popup-container .form-container input {
+  border: 1px solid rgba(16, 16, 16, 0.3);
+  font-size: 0.8rem;
+  outline: none;
+  grid-area: inputCity;
+  border-radius: 3px; }
+
+.popup-container .form-container .btnLocationAccept {
+  grid-area: btnConfirm;
+  margin-top: 0.5rem; }
+
+.popup-container .form-container .btnLocationCancel {
+  grid-area: btnCancel;
+  margin-top: 0.5rem; }
+
+.btnLocation {
+  margin: 1rem 0px; }

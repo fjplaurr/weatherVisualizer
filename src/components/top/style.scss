@@ -1,54 +1,42 @@
 .topContainer {
   display: flex;
   flex-direction: column;
-  font-family: Oxygen, sans-serif;
   align-items: center;
-  background-color: rgb(70, 95, 120);
   height: 100%;
   widows: 100%;
-
-  .title {
-    color: #fff;
-    font-size: 20px;
-    font-size: 16px;
-    margin-top: 6px;
-  }
+  justify-content: space-around;
 }
 
 .weatherContainer {
-  color: #fff;
-  margin-top: 1.2em;
+  color: #e9e9e9;
 
   .header {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    font-size: 13px;
+    margin-top: 1rem;
   }
 
   .inner-container {
     display: flex;
     flex-direction: row;
     justify-content: center;
-    color: #fff;
-    margin: 10px 0px;
     align-items: center;
   }
 
-  .current-weather{
-      height: fit-content;
-      font-size: 28px;
+  .currentWeather{
+    font-size: 2.5rem;  
   }
 
   .footer {
     display: flex;
     justify-content: center;
-    font-size: 13px;
+    font-size: 1rem;
   }
 
-  .image {
-    width: 4em;
-    height: 4em;
+  .imageWrapper {
+    width: 3rem;
+    height: 3rem;
 
     img {
       width: 100%;
@@ -57,11 +45,3 @@
   }
 }
 
-
-.btnLocation{
-    font-size: 10px;
-    font-family: Roboto, sans-serif;
-    border-radius: 2px;
-    background-color: rgb(100,200,200);
-    color: #222;
-}

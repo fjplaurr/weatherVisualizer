@@ -35,7 +35,7 @@ export default class App extends Component {
     }
   }
 
-  //Calling updateCity with 2 parameters indicated those parameters are latitude and longitud whereas calling it with one parameters indicate name of city.
+  //Calling updateCity with 2 parameters: latitude and longitud. Calling it with 1 parameter: name of city
   updateCity = (p1, p2) => {
     var URLcurrent = '';
     var URLforecast = '';

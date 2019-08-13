@@ -31,7 +31,6 @@ export default class TopSection extends React.Component {
         const { isSelectlocationOpen } = this.state;
         return (
             <div className='topContainer'>
-                <div className="title">Current weather</div>
                 <CurrentWeather {...this.props}></CurrentWeather>
                 <Manager>
                     <Reference>
@@ -46,12 +45,13 @@ export default class TopSection extends React.Component {
                             <div className='popup-container' ref={ref} style={style} data-placement={placement}>
                                 <div ref={arrowProps.ref} style={arrowProps.style} />
                                 <div className='form-container'>
-                                    <label htmlFor='location-name'>Location Name</label>
-                                    <input type='text' id='location-name' placeholder='City Name' onChange={this.onLocationNameChange.bind(this)}></input>
-                                    <button className='btn btnLocation' onClick={ () => {
-                                        this.props.updateCity(this.state.locationName);
+                                    <input type='text' id='location-name' placeholder='Enter city name' onChange={this.onLocationNameChange.bind(this)}></input>
+                                    <button className='btn btnLocationAccept' onClick={ () => {
+                                        this.onSelectCity(this.state.locationName);
+                                    }}>Search</button>
+                                    <button className='btn btnLocationCancel' onClick={ () => {
                                         this.setState({ isSelectlocationOpen: false });
-                                    }}>Select</button>
+                                    }}>Cancel</button>
                                 </div>
                             </div>
                         )}
