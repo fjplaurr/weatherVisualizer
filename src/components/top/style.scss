@@ -9,6 +9,10 @@
 
 .weatherContainer {
   color: #e9e9e9;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   .header {
     display: flex;
@@ -17,27 +21,30 @@
     margin-top: 1rem;
   }
 
-  .inner-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-  }
-
   .currentWeather{
-    font-size: 2.5rem;  
+    font-size: 3rem;  
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+    div{
+      font-size: 1.5rem;
+      align-self: flex-start;
+      margin-top: 0.3rem;
+    }
   }
 
   .footer {
     display: flex;
     justify-content: center;
     font-size: 1rem;
+    align-items: center;
   }
 
   .imageWrapper {
     width: 3rem;
     height: 3rem;
-
+    
     img {
       width: 100%;
       height: 100%;

@@ -13,11 +13,7 @@ body,
 #root {
   width: 100%;
   height: 100%;
-  background-color: #DDD;
-}
-
-#root{
-  --bottomColor: #32465C;
+  background: linear-gradient(to bottom right, rgb(210, 210, 210), rgb(240, 240, 240));
 }
 
 .appContainer {
@@ -28,13 +24,17 @@ body,
   align-items: center;
 
   .mainContainer {
+    background: url(https://res.cloudinary.com/fjplaurr/image/upload/v1565777165/Web%20Development/Images/beach_woly2t.jpg) center no-repeat;   
+    background-color: rgba(0, 0, 0, 0.5);
+    background-blend-mode: hue;
+    background-size: cover;
+
     display: flex;
     flex-direction: column;
-    border: 2px solid #777;
+    border: none;
+    box-shadow: 0px 0.8rem 0.6rem 0.1rem rgba(16,16,16,0.5);
  
     .topSection {
-      background: url(../../resources/images/weather.jpg) center no-repeat;
-      background-color: rgba(0, 0, 0, 0.6);
       background-blend-mode: hue;
       background-size: cover;
       flex: 1 1 50%;
@@ -90,5 +90,5 @@ body,
 }
 
 .btnLocation{
-  margin: 1rem 0px; 
+  margin-top: 0.5rem; 
 }

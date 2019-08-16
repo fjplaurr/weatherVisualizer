@@ -1,37 +1,18 @@
-import React, { Component } from 'react';
+import React, { Component } from './node_modules/react';
 import './app.css';
 import TopSection from '../top/index';
 import BottomSection from '../bottom/index';
-import axios from 'axios';
-
-
+import axios from './node_modules/axios';
+import {getLocation} from '../../utils.js';
 
 const KEY = 'db168490cf4a5154faf7efed0866368a';
-
-
-
-function getLocation(callback) {
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(position => {
-      var user_position = {};
-      user_position.lat = position.coords.latitude;
-      user_position.lng = position.coords.longitude;
-      callback(user_position);
-    });
-  } else {
-    alert("Geolocation is not supported by this browser.");
-  }
-}
-
-
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cityName: 'Almeria',
-      isLoading: true,
-      numForecastDays: 5
+      cityName: 'London',
+      isLoading: true
     }
   }
 
@@ -40,11 +21,11 @@ export default class App extends Component {
     var URLcurrent = '';
     var URLforecast = '';
     if (typeof p2 == 'undefined') {
-      URLcurrent = `http://api.openweathermap.org/data/2.5/weather?q=${p1}&units=metric&appid=${KEY}`;
-      URLforecast = `http://api.openweathermap.org/data/2.5/forecast?q=${p1}&units=metric&appid=${KEY}`;
+      URLcurrent = `http://api.openweathermap.org/data/2.5/weather?q=${p1}&lang=${navigator.language.substring(0,2)}&units=metric&appid=${KEY}`;
+      URLforecast = `http://api.openweathermap.org/data/2.5/forecast?q=${p1}&lang=${navigator.language.substring(0,2)}&units=metric&appid=${KEY}`;
     } else {
-      URLcurrent = `http://api.openweathermap.org/data/2.5/weather?lat=${p1}&lon=${p2}&units=metric&appid=${KEY}`;
-      URLforecast = `http://api.openweathermap.org/data/2.5/forecast?lat=${p1}&lon=${p2}&units=metric&appid=${KEY}`
+      URLcurrent = `http://api.openweathermap.org/data/2.5/weather?lat=${p1}&lon=${p2}&lang=${navigator.language.substring(0,2)}&units=metric&appid=${KEY}`;
+      URLforecast = `http://api.openweathermap.org/data/2.5/forecast?lat=${p1}&lon=${p2}&lang=${navigator.language.substring(0,2)}&units=metric&appid=${KEY}`
     }
     console.log('URL current: ');
     console.log(URLcurrent);
@@ -82,7 +63,7 @@ export default class App extends Component {
   componentWillMount() {
     //Initial visualization
     var lat_lng = [];
-    getLocation((lat_lng) => {});
+    getLocation((lat_lng) => { });
     if (lat_lng.length) {
       this.updateCity(lat_lng[0], lat_lng[1]);
     } else {
@@ -92,19 +73,21 @@ export default class App extends Component {
   }
 
   render() {
-    const { isLoading, cityName, currentTemperature, text, iconURL, forecastDaysArray, numForecastDays } = this.state;
+    console.log('CITYPADRE');
+    console.log(this.state.cityName);
+    const { isLoading, cityName, currentTemperature, text, iconURL, forecastDaysArray } = this.state;
     return (
       <div className='appContainer'>
         <div className='mainContainer'>
           {isLoading && <h3>Loading Weather...</h3>}
           {!isLoading &&
             <div className='topSection'>
-              <TopSection updateCity={this.updateCity.bind(this)} location={cityName} currentTemperature={currentTemperature}
+              <TopSection updateCity={this.updateCity.bind(this)} cityName={cityName} currentTemperature={currentTemperature}
                 text={text} iconURL={iconURL} eventEmitter={this.props.eventEmitter}></TopSection>
             </div>
           }
           <div className='bottomSecion'>
-            <BottomSection forecastDaysArray={forecastDaysArray} numForecastDays={numForecastDays}></BottomSection>
+            <BottomSection forecastDaysArray={forecastDaysArray}></BottomSection>
           </div>
         </div>
       </div>
